@@ -1,4 +1,4 @@
 package com.spiro.operation.model;
 
-public class country {
+public class Station {
 }
