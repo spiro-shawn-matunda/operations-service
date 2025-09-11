@@ -1,31 +1,14 @@
-package com.spiro.operation.model;
+package com.spiro.operation.dto;
 
-import jakarta.persistence.*;
+public class AttendantsResponse {
 
-@Entity
-public class Attendants {
-
-
-    @Id
-    @Column
-    private String id;
-    @Column(nullable = false)
     private String firstName;
-    @Column(nullable = false)
     private String secondName;
-    @Column(nullable = false, length = 10,unique = true)
-    private String phoneNumber;
-    @Column(nullable = false,unique = true)
+    private int phoneNumber;
     private int nationalId;
-    @Column(nullable = false)
     private String email;
-    @Column
     private String homeAddress;
 
-
-    public String getId() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -35,7 +18,7 @@ public class Attendants {
         return secondName;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -52,10 +35,6 @@ public class Attendants {
     }
 
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -64,7 +43,7 @@ public class Attendants {
         this.secondName = secondName;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -79,5 +58,4 @@ public class Attendants {
     public void setHomeAddress(String homeAddress) {
         this.homeAddress = homeAddress;
     }
-
 }
