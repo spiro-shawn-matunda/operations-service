@@ -1,5 +1,6 @@
 package com.spiro.operation.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 
@@ -56,4 +57,5 @@ public class Station {
     public void setAttendant(String attendant) {
         this.attendant = attendant;
     }
+
 }
