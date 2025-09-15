@@ -1,7 +1,6 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 public class Station {
     @Id
@@ -14,6 +13,12 @@ public class Station {
     private String location;
     private int batteryCapacity;
 
+    @OneToMany(fetch = FetchType.LAZY,targetEntity = PowerEvents.class)
+    @JoinTable(
+            name = "Station_PowerEvents",
+            joinColumns=@JoinColumn(name = "Power_events_id"),
+            inverseJoinColumns = @JoinColumn(name = "Station_id")
+    )
     @Column(nullable = false)
     private String attendant;
 

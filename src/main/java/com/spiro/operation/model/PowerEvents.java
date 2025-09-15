@@ -1,27 +1,36 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+@Entity
 public class PowerEvents {
+
     @Id
-    @Column(nullable = false)
-    private String stationId;
+    private String id;
 
-    @Column(nullable = false)
-    private int agentId;
+    @ManyToOne(targetEntity = Station.class, optional = false)
+    @JoinColumn(name = "Station")
+    Station station;
 
-    private  String events;
+/*    @ManyToOne(targetEntity = Agent.class, optional = false)
+    @JoinColumn(name = "Agent")
+    Agent agent;*/
 
 
-    @Column(nullable = false,updatable = false)
+    private String events;
+
+
+    @Column(nullable = false, updatable = false)
     private LocalDateTime startTime;
 
-    @Column(nullable = false,updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime endTime;
 
+    @ManyToOne(targetEntity = Status.class)
+    @JoinColumn(name = "Status")
+    Status status;
 
     public LocalDateTime getStartTime() {
         return startTime;
@@ -40,22 +49,14 @@ public class PowerEvents {
     }
 
 
-
-    public String getStationId() {
-        return stationId;
+    public String getId() {
+        return id;
     }
 
-    public void setStationId(String stationId) {
-        this.stationId = stationId;
+    public void setId(String stationId) {
+        this.id = id;
     }
 
-    public int getAgentId() {
-        return agentId;
-    }
-
-    public void setAgentId(int agentId) {
-        this.agentId = agentId;
-    }
 
     public String getEvents() {
         return events;
