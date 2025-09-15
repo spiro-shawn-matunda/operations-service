@@ -12,6 +12,7 @@ public class Shift{
 
     @Column(nullable = false)
     private LocalDateTime startTime;
+
     @Column(nullable = false)
     private LocalDateTime endTime;
 

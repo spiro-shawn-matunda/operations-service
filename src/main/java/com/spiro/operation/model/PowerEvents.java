@@ -15,6 +15,14 @@ public class PowerEvents {
 
     private  String events;
 
+
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime startTime;
+
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime endTime;
+
+
     public LocalDateTime getStartTime() {
         return startTime;
     }
@@ -31,11 +39,7 @@ public class PowerEvents {
         this.endTime = endTime;
     }
 
-    @Column(nullable = false,updatable = false)
-    private LocalDateTime startTime;
 
-    @Column(nullable = false,updatable = false)
-    private LocalDateTime endTime;
 
     public String getStationId() {
         return stationId;
