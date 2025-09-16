@@ -3,7 +3,6 @@ package com.spiro.operation.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import java.time.LocalDateTime;
 
 @Entity
 public class Status {
@@ -15,9 +14,6 @@ public class Status {
 
     @Column
     private String description;
-
-    @Column(updatable = false)
-    private LocalDateTime created;
 
     public Status() {}
 
@@ -43,13 +39,5 @@ public class Status {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
     }
 }
