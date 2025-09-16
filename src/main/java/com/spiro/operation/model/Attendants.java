@@ -6,12 +6,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "attendants")
 public class Attendants {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private String id;
 
     @Column(nullable = false)
@@ -40,9 +40,17 @@ public class Attendants {
     @Column
     private String homeAddress;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Status.class)
+    @OneToMany(mappedBy = "attendant", fetch = FetchType.LAZY)
+    private List<Battery> batteries;
+
+    @ManyToOne(targetEntity = Country.class)
+    @JoinColumn(name = "Country")
+    Country country;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Status.class, optional = false)
     @JoinColumn(name = "Status")
     Status status;
+
 
     @Column
     private LocalDateTime createdAt;

@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "shift_records")
 public class ShiftRecords {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-
 
     @Column
     private String StationId;
@@ -29,6 +30,9 @@ public class ShiftRecords {
     @Column
     private String comments;
 
+    @ManyToOne
+    @JoinColumn(name = "attendant_id", referencedColumnName = "id")
+    private Attendants attendant;
 
     public String getStationId() {
         return StationId;

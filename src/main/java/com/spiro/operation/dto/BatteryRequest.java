@@ -3,12 +3,29 @@ package com.spiro.operation.dto;
 import java.time.LocalDateTime;
 
 public class BatteryRequest {
-
+    private String attendantId;
     private String numberOfBatteries;
-    private String faultyBattereies;
+    private String faultyBatteries;
     private String numberOfChargers;
-    private LocalDateTime updatedAt;
-    private LocalDateTime createdAt;
+
+    // Constructors
+    public BatteryRequest() {}
+
+    public BatteryRequest(String attendantId, String numberOfBatteries, String faultyBatteries, String numberOfChargers) {
+        this.attendantId = attendantId;
+        this.numberOfBatteries = numberOfBatteries;
+        this.faultyBatteries = faultyBatteries;
+        this.numberOfChargers = numberOfChargers;
+    }
+
+    // Getters and Setters
+    public String getAttendantId() {
+        return attendantId;
+    }
+
+    public void setAttendantId(String attendantId) {
+        this.attendantId = attendantId;
+    }
 
     public String getNumberOfBatteries() {
         return numberOfBatteries;
@@ -18,12 +35,12 @@ public class BatteryRequest {
         this.numberOfBatteries = numberOfBatteries;
     }
 
-    public String getFaultyBattereies() {
-        return faultyBattereies;
+    public String getFaultyBatteries() {
+        return faultyBatteries;
     }
 
-    public void setFaultyBattereies(String faultyBattereies) {
-        this.faultyBattereies = faultyBattereies;
+    public void setFaultyBatteries(String faultyBatteries) {
+        this.faultyBatteries = faultyBatteries;
     }
 
     public String getNumberOfChargers() {
@@ -32,21 +49,5 @@ public class BatteryRequest {
 
     public void setNumberOfChargers(String numberOfChargers) {
         this.numberOfChargers = numberOfChargers;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

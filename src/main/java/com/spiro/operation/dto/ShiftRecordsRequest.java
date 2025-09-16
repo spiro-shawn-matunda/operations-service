@@ -3,28 +3,28 @@ package com.spiro.operation.dto;
 import java.time.LocalDateTime;
 
 public class ShiftRecordsRequest {
-    private String agentId;
-    private String StationId;
+    private String attendantId;
+    private String stationId;
     private LocalDateTime timeIn;
     private LocalDateTime timeOut;
     private String location;
     private int units;
     private String comments;
 
-    public String getAgentId() {
-        return agentId;
+    public String getAttendantId() {
+        return attendantId;
     }
 
-    public void setAgentId(String agentId) {
-        this.agentId = agentId;
+    public void setAttendantId(String attendantId) {
+        this.attendantId = attendantId;
     }
 
     public String getStationId() {
-        return StationId;
+        return stationId;
     }
 
     public void setStationId(String stationId) {
-        StationId = stationId;
+        this.stationId = stationId;
     }
 
     public LocalDateTime getTimeIn() {

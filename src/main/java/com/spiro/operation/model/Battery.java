@@ -1,16 +1,15 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "batteries")
 public class Battery {
 
     @Id
-    private String oem;
+    private String id;
     @Column
     private String numberOfBatteries;
     @Column
@@ -19,7 +18,25 @@ public class Battery {
     private String numberOfChargers;
     @Column
     private LocalDateTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "attendant_id")
+    private Attendants attendant;
 
+    public Attendants getAttendant() {
+        return attendant;
+    }
+
+    public void setAttendant(Attendants attendant) {
+        this.attendant = attendant;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     @Column
     private LocalDateTime updatedAt;
@@ -41,12 +58,12 @@ public class Battery {
         this.numberOfChargers = numberOfChargers;
     }
 
-    public String getFaultyBattereies() {
+    public String getFaultyBatteries() {
         return faultyBatteries;
     }
 
-    public void setFaultyBattereies(String faultyBattereies) {
-        this.faultyBatteries = faultyBattereies;
+    public void setFaultyBatteries(String faultyBatteries) {
+        this.faultyBatteries = faultyBatteries;
     }
 
     public LocalDateTime getCreatedAt() {
