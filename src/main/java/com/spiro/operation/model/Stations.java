@@ -14,11 +14,10 @@ public class Stations {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false,length = 2000)
     private String location;
 
 
-    private int batteryCapacity;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

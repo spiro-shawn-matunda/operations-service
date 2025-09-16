@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class PowerEvents {
     @Id
     private String id;
-    private String event;
+
+
 
     @Column(updatable = false,nullable = false)
     private LocalDateTime startTime;
@@ -19,7 +20,8 @@ public class PowerEvents {
     @Column(updatable = false,nullable = false)
     private LocalDateTime endTime;
 
-    @Column(nullable = false)
-    private String  status;
+    @Column(updatable = false,nullable = false )
+    private LocalDateTime created;
+
 
 }
