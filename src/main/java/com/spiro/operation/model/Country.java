@@ -1,5 +1,6 @@
 package com.spiro.operation.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -26,6 +27,7 @@ public class Country {
     }
 
     public void setId(String id) {
+
         this.id = id;
     }
 
@@ -36,6 +38,7 @@ public class Country {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getDescription() {
         return description;
@@ -51,5 +54,6 @@ public class Country {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+
     }
 }
