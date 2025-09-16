@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class ShiftRecords {
+public class ShiftRecord {
 
     @Id
     private String id;

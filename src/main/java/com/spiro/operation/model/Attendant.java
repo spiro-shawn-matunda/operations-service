@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class Attendants {
+public class Attendant {
 
     @Id
     private String id;

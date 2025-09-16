@@ -1,7 +1,26 @@
 package com.spiro.operation.model;
 
-public enum PowerEvent {
-    WIFI_OUTAGE,
-    POWER_OUTAGE,
-    TOKENS_COMPLETION
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+import java.time.LocalDateTime;
+
+@Entity
+public class PowerEvent {
+    @Id
+    private String id;
+
+
+    @Column(updatable = false,nullable = false)
+    private LocalDateTime startTime;
+
+
+    @Column(updatable = false,nullable = false)
+    private LocalDateTime endTime;
+
+    @Column(updatable = false,nullable = false )
+    private LocalDateTime created;
+
+
 }
