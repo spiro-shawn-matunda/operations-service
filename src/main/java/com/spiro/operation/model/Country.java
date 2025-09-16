@@ -1,49 +1,31 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
-<<<<<<< HEAD
-=======
-@Table(name = "countries")
->>>>>>> 85865daaf2b9e34f98ca3b63ee80a01932dd2469
 public class Country {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-    @Column( nullable = false)
-    private Long id;
-
-
-    private String name;
-
-    private String code;
-    private String state;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-=======
     private String id;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column
-    private String code;
-    @Column
+    private String description;
 
-    private String state;
+    @Column(updatable = false)
+    private LocalDateTime created;
+
+    public Country() {}
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
->>>>>>> 85865daaf2b9e34f98ca3b63ee80a01932dd2469
         this.id = id;
     }
 
@@ -55,23 +37,19 @@ public class Country {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getState() {
-        return state;
+    public LocalDateTime getCreated() {
+        return created;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 85865daaf2b9e34f98ca3b63ee80a01932dd2469
