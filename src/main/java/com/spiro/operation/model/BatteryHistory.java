@@ -2,6 +2,7 @@ package com.spiro.operation.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -18,13 +19,12 @@ public class BatteryHistory {
     )
     private List<Incident> incidents;
 
-
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "battery_oem")
+    @JoinColumn(name = "Battery")
     private Battery battery;
 
-
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime created;
 
 
 }

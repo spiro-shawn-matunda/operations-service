@@ -11,30 +11,26 @@ public class ShiftTable {
     @Id
     private String id;
 
-
     @Column(nullable = false)
     private LocalDateTime startTime;
 
     @OneToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status",nullable = false)
     Status status;
 
     @Column(nullable = false)
     private LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
-  private ShiftType shiftType;
+    private ShiftType shiftType;
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
     @JoinTable(
             name = "Attendants_ShiftRecord",
-            joinColumns = @JoinColumn(name = "Attendants_id"),
-            inverseJoinColumns = @JoinColumn(name = "ShiftRecord_id")
+            joinColumns = @JoinColumn(name = "Attendants"),
+            inverseJoinColumns = @JoinColumn(name = "ShiftRecord")
     )
     List<Attendants> attendants;
-
-
-
 
     @Column(nullable = false,updatable = false)
     private LocalDateTime createdAt;

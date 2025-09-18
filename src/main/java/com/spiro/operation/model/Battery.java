@@ -12,7 +12,7 @@ public class Battery {
     @Id
     private String Oem;
 
-@Column(nullable = false)
+    @Column(nullable = false)
     private boolean faulty;
 
 
@@ -20,10 +20,10 @@ public class Battery {
     private LocalDateTime createdAt;
 
     @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status", nullable = false)
     Status status;
 
-    @Column(updatable = false)
+    @Column(updatable = false,nullable = false )
     private LocalDateTime updatedAt;
 
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
