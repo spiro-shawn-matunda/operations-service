@@ -1,9 +1,9 @@
 package com.spiro.operation.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Country {
@@ -13,8 +13,25 @@ public class Country {
     @Column(nullable = false, unique = true)
     private String name;
 
+
+    @ManyToOne(targetEntity = Status.class)
+    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    Status status;
+
+
+
     @Column
     private String description;
+
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Stations.class)
+    @JoinTable(
+            name = "Country_Stations",
+            joinColumns = @JoinColumn(name = "Country_id"),
+            inverseJoinColumns = @JoinColumn(name = "Stations_id")
+    )
+    private List<Stations> stations;
+
 
 
     public String getId() {
