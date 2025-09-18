@@ -13,7 +13,7 @@ public class Battery {
     private String Oem;
 
 @Column(nullable = false)
-    private boolean faulty;
+    private String faulty;
 
 
     @Column(updatable = false,nullable = false)
@@ -33,6 +33,7 @@ public class Battery {
             inverseJoinColumns = @JoinColumn(name = "incident_id")
     )
     private List<Incident> incidents;
+
 
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = BatteryHistory.class)
