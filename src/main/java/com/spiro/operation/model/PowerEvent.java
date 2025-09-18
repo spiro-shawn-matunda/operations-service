@@ -11,38 +11,23 @@ public class PowerEvent {
     @Id
     private String id;
 
-
     @Column(updatable = false,nullable = false)
     private LocalDateTime startTime;
-
-
-
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Stations.class)
-    @JoinTable(
-            name = "Stations_PowerEvent",
-            joinColumns = @JoinColumn(name = "Station_id"),
-            inverseJoinColumns = @JoinColumn(name = "PowerEvent_id")
-    )
-    List<Stations> stations;
-
 
 
 
     @Column(updatable = false,nullable = false)
     private LocalDateTime endTime;
 
-private PowerEventType powerEventType;
-
+    private PowerEventType powerEventType;
 
     @OneToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status",nullable = false)
     Status status;
-
-
-
 
     @Column(updatable = false,nullable = false )
     private LocalDateTime created;
+
 
 
 }

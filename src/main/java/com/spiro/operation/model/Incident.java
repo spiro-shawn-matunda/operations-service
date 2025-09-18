@@ -12,18 +12,18 @@ public class Incident {
     @Enumerated(EnumType.STRING)
     private IncidentType incidentType;
 
-private String customerId;
-
+    @Column(nullable = false)
+    private String customerId;
 
     @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status",nullable = false)
     Status status;
 
-
-private String bikeNumber;
+    private String bikeRegistration;
 
     @ManyToMany(mappedBy = "incidents")
     private List<Battery> batteries;
+
 
 
 }

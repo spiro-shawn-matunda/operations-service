@@ -14,14 +14,14 @@ public class Stations {
     private String name;
 
     @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status", nullable = false)
     Status status;
 
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = PowerEvent.class)
     @JoinTable(
             name = "Stations_PowerEvent",
-            joinColumns = @JoinColumn(name = "Station_id"),
-            inverseJoinColumns = @JoinColumn(name = "PowerEvent_id")
+            joinColumns = @JoinColumn(name = "Station"),
+            inverseJoinColumns = @JoinColumn(name = "PowerEvent")
     )
     List<PowerEvent> powerEvents;
 
@@ -33,8 +33,8 @@ public class Stations {
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
     @JoinTable(
             name = "Stations_Attendants",
-            joinColumns = @JoinColumn(name = "Station_id"),
-            inverseJoinColumns = @JoinColumn(name = "Attendants_id")
+            joinColumns = @JoinColumn(name = "Station_"),
+            inverseJoinColumns = @JoinColumn(name = "Attendants")
     )
     List<Attendants> attendants;
 
@@ -43,6 +43,6 @@ public class Stations {
 
 
     @ManyToOne(targetEntity =   Country.class)
-    @JoinColumn(name = "Country_id", referencedColumnName = "id")
+    @JoinColumn(name = "Country_id")
     Country country;
 }

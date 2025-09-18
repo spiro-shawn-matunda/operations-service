@@ -14,36 +14,26 @@ public class ShiftRecord {
     @Column(nullable = false)
     private LocalDateTime timeIn;
 
-
-
     @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status_id", referencedColumnName = "id")
+    @JoinColumn(name = "Status",nullable = false)
     Status status;
-
-
-
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
             name = "ShiftRecord_Incidents",
-            joinColumns = @JoinColumn(name = "ShiftRecord_id"),
-            inverseJoinColumns = @JoinColumn(name = "Incident_id")
+            joinColumns = @JoinColumn(name = "ShiftRecord"),
+            inverseJoinColumns = @JoinColumn(name = "Incident")
     )
     List<Incident> incidents;
-
 
     @Column(nullable = false)
     private LocalDateTime timeOut;
 
 
-    @ManyToMany(mappedBy = "shiftRecords")
-    private List<Attendants> attendants;
-
-
+    @Column(nullable = false)
     private String units;
 
     private String comments;
-
 
     @Column(updatable = false, unique = true)
     private LocalDateTime createdAt;

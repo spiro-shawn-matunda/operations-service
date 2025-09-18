@@ -1,4 +1,4 @@
 package com.spiro.operation.dto;
 
-public class PowerEventRequest {
+public class ShiftTableRequest {
 }
