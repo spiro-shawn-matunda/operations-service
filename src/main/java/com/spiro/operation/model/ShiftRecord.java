@@ -21,8 +21,8 @@ public class ShiftRecord {
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
             name = "ShiftRecord_Incidents",
-            joinColumns = @JoinColumn(name = "ShiftRecord_id"),
-            inverseJoinColumns = @JoinColumn(name = "Incident_id")
+            joinColumns = @JoinColumn(name = "ShiftRecord"),
+            inverseJoinColumns = @JoinColumn(name = "Incident")
     )
     List<Incident> incidents;
 

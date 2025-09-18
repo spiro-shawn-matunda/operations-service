@@ -30,7 +30,7 @@ public class Battery {
     @JoinTable(
             name = "Battery_incidents",
             joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "incident_id")
+            inverseJoinColumns = @JoinColumn(name = "incident")
     )
     private List<Incident> incidents;
 
@@ -39,7 +39,7 @@ public class Battery {
     @JoinTable(
             name = "Battery_BatteryHistory",
             joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "batteryHistory_id")
+            inverseJoinColumns = @JoinColumn(name = "batteryHistory")
     )
     private List<BatteryHistory> batteryHistoryList;
 

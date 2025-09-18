@@ -33,8 +33,8 @@ public class Stations {
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
     @JoinTable(
             name = "Stations_Attendants",
-            joinColumns = @JoinColumn(name = "Station_id"),
-            inverseJoinColumns = @JoinColumn(name = "Attendants_id")
+            joinColumns = @JoinColumn(name = "Station_"),
+            inverseJoinColumns = @JoinColumn(name = "Attendants")
     )
     List<Attendants> attendants;
 

@@ -15,7 +15,7 @@ public class BatteryHistory {
     @JoinTable(
             name = "Battery_incidents",
             joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "incident_id")
+            inverseJoinColumns = @JoinColumn(name = "incident")
     )
     private List<Incident> incidents;
 
