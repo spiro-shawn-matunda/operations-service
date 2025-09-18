@@ -10,8 +10,6 @@ public class Status {
     @Id
     private String id;
 
-    @Column(nullable = false, unique = true)
-    private String name;
 
     @Column
     private String description;
@@ -27,14 +25,14 @@ public class Status {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+   /* public boolean getStatus() {
+        return status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(boolean status) {
+        this.status = status;
     }
-
+*/
     public String getDescription() {
         return description;
     }
