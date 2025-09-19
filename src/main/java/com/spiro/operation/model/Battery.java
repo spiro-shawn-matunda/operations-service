@@ -29,18 +29,11 @@ public class Battery {
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
             name = "Battery_incidents",
-            joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "incident")
+            joinColumns = @JoinColumn(name = "battery_Oem_id"),
+            inverseJoinColumns = @JoinColumn(name = "incident_id")
     )
     private List<Incident> incidents;
 
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = BatteryHistory.class)
-    @JoinTable(
-            name = "Battery_BatteryHistory",
-            joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "batteryHistory")
-    )
-    private List<BatteryHistory> batteryHistoryList;
 
 }

@@ -43,8 +43,8 @@ public class Attendants {
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = ShiftRecord.class)
     @JoinTable(
             name = "Attendants_ShiftRecord",
-            joinColumns = @JoinColumn(name = "Attendants"),
-            inverseJoinColumns = @JoinColumn(name = "ShiftRecord")
+            joinColumns = @JoinColumn(name = "Attendants-id"),
+            inverseJoinColumns = @JoinColumn(name = "ShiftRecord-id")
     )
     List<ShiftRecord> shiftRecords;
 }

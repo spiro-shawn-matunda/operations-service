@@ -20,8 +20,8 @@ public class Stations {
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = PowerEvent.class)
     @JoinTable(
             name = "Stations_PowerEvent",
-            joinColumns = @JoinColumn(name = "Station"),
-            inverseJoinColumns = @JoinColumn(name = "PowerEvent")
+            joinColumns = @JoinColumn(name = "Station-id"),
+            inverseJoinColumns = @JoinColumn(name = "PowerEvent-id")
     )
     List<PowerEvent> powerEvents;
 

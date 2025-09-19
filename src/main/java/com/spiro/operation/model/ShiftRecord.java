@@ -21,8 +21,8 @@ public class ShiftRecord {
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
             name = "ShiftRecord_Incidents",
-            joinColumns = @JoinColumn(name = "ShiftRecord"),
-            inverseJoinColumns = @JoinColumn(name = "Incident")
+            joinColumns = @JoinColumn(name = "ShiftRecord_id"),
+            inverseJoinColumns = @JoinColumn(name = "Incident_id")
     )
     List<Incident> incidents;
 
@@ -38,8 +38,7 @@ public class ShiftRecord {
     @Column(updatable = false, unique = true)
     private LocalDateTime createdAt;
 
-    @Column(updatable = false, unique = true)
-    private LocalDateTime updatedAt;
+
 
 
 }
