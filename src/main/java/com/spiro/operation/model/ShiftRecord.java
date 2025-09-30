@@ -20,17 +20,15 @@ public class ShiftRecord {
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
-            name = "ShiftRecord_Incidents",
-            joinColumns = @JoinColumn(name = "ShiftRecord_id"),
-            inverseJoinColumns = @JoinColumn(name = "Incident_id")
+            name = "ShiftRecordIncidents",
+            joinColumns = @JoinColumn(name = "ShiftRecord"),
+            inverseJoinColumns = @JoinColumn(name = "Incident")
     )
     List<Incident> incidents;
 
     @Column(nullable = false)
     private LocalDateTime timeOut;
 
-
-    @Column(nullable = false)
     private String units;
 
     private String comments;
@@ -38,7 +36,16 @@ public class ShiftRecord {
     @Column(updatable = false, unique = true)
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
+    private String meterReading;
 
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
+    @JoinTable(
+            name = "Attendants_ShiftRecord",
+            joinColumns = @JoinColumn(name = "Attendants_id"),
+            inverseJoinColumns = @JoinColumn(name = "ShiftRecord-id")
+    )
+    List<Attendants> attendants;
 
 
 }

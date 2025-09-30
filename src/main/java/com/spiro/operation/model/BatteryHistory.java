@@ -12,17 +12,13 @@ public class BatteryHistory {
     private String id;
 
 
-
-    @ManyToOne
-    @JoinColumn(name = "battery_Oem")
-    private Battery battery;
-
     @Column(nullable = false,updatable = false)
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "Incident_id")
-    private Incident incidents;
+    @JoinColumn(name = "Battery")
+    private Battery battery;
+
 
     @ManyToOne
     @JoinColumn(name = "Attendants_id")
@@ -31,5 +27,11 @@ public class BatteryHistory {
     @ManyToOne
     @JoinColumn(name = "Status_id")
     private Status status;
+
+
+    @ManyToOne
+    @JoinColumn(name = "Incident")
+    private Incident Incident;
+
 
 }

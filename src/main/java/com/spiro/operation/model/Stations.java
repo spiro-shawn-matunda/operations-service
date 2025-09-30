@@ -30,19 +30,11 @@ public class Stations {
     private String location;
 
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
-    @JoinTable(
-            name = "Stations_Attendants",
-            joinColumns = @JoinColumn(name = "Station_"),
-            inverseJoinColumns = @JoinColumn(name = "Attendants")
-    )
-    List<Attendants> attendants;
-
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
 
     @ManyToOne(targetEntity =   Country.class)
-    @JoinColumn(name = "Country_id")
+    @JoinColumn(name = "Country")
     Country country;
 }

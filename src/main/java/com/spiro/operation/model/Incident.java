@@ -10,9 +10,9 @@ public class Incident {
     private String id;
 
     @Enumerated(EnumType.STRING)
-    private IncidentType incidentType;
+    private IncidentType type;
 
-    @Column(nullable = false)
+
     private String customerId;
 
     @ManyToOne(targetEntity = Status.class)
@@ -21,8 +21,14 @@ public class Incident {
 
     private String bikeRegistration;
 
-    @ManyToMany(mappedBy = "incidents")
-    private List<Battery> batteries;
+    @ManyToOne(targetEntity =Stations.class)
+    @JoinColumn(name = "Station",nullable = false)
+    Stations stations;
+
+
+    @Column(length = 500)
+    private String Description;
+
 
 
 

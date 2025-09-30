@@ -26,13 +26,6 @@ public class Battery {
     @Column(updatable = false,nullable = false )
     private LocalDateTime updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
-    @JoinTable(
-            name = "Battery_incidents",
-            joinColumns = @JoinColumn(name = "battery_Oem_id"),
-            inverseJoinColumns = @JoinColumn(name = "incident_id")
-    )
-    private List<Incident> incidents;
 
 
 
