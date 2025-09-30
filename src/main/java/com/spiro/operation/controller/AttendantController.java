@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/attendants")
+@CrossOrigin(origins = "*")
 public class AttendantController {
 
     @Autowired
@@ -55,13 +56,5 @@ public class AttendantController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAttendant(@PathVariable String id) {
-        try {
-            attendantService.deleteAttendant(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
+
 }

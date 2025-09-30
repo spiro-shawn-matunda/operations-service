@@ -1,6 +1,5 @@
 package com.spiro.operation.model;
 
-
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -26,21 +25,6 @@ public class Battery {
     @Column(updatable = false,nullable = false )
     private LocalDateTime updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
-    @JoinTable(
-            name = "Battery_incidents",
-            joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "incident")
-    )
-    private List<Incident> incidents;
 
-
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = BatteryHistory.class)
-    @JoinTable(
-            name = "Battery_BatteryHistory",
-            joinColumns = @JoinColumn(name = "battery_Oem"),
-            inverseJoinColumns = @JoinColumn(name = "batteryHistory")
-    )
-    private List<BatteryHistory> batteryHistoryList;
 
 }

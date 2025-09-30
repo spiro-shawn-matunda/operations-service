@@ -24,14 +24,6 @@ public class ShiftTable {
     @Enumerated(EnumType.STRING)
     private ShiftType shiftType;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
-    @JoinTable(
-            name = "Attendants_ShiftRecord",
-            joinColumns = @JoinColumn(name = "Attendants"),
-            inverseJoinColumns = @JoinColumn(name = "ShiftRecord")
-    )
-    List<Attendants> attendants;
-
     @Column(nullable = false,updatable = false)
     private LocalDateTime createdAt;
 }

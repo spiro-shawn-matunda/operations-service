@@ -95,6 +95,7 @@ public class AttendantService {
         dto.setNationalId(attendant.getNationalId());
         dto.setEmail(attendant.getEmail());
         dto.setHomeAddress(attendant.getHomeAddress());
+
         return dto;
     }
 }

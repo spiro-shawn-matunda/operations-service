@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 public class Stations {
+
     @Id
     private String id;
 
@@ -29,14 +30,6 @@ public class Stations {
     @Column(nullable = false, updatable = false,length = 2000)
     private String location;
 
-
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
-    @JoinTable(
-            name = "Stations_Attendants",
-            joinColumns = @JoinColumn(name = "Station_"),
-            inverseJoinColumns = @JoinColumn(name = "Attendants")
-    )
-    List<Attendants> attendants;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

@@ -19,6 +19,7 @@ public class PowerEvent {
     @Column(updatable = false,nullable = false)
     private LocalDateTime endTime;
 
+    @Enumerated(EnumType.STRING)
     private PowerEventType powerEventType;
 
     @OneToOne(targetEntity = Status.class)

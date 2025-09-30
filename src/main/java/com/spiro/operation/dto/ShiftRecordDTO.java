@@ -1,37 +1,16 @@
-package com.spiro.operation.model;
+package com.spiro.operation.dto;
 
-import jakarta.persistence.*;
+import com.spiro.operation.model.Status;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Entity
-public class ShiftRecord {
-
-    @Id
+public class ShiftRecordDTO {
     private String id;
-
-    @Column(nullable = false)
     private LocalDateTime timeIn;
-
-    @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status",nullable = false)
-    Status status;
-
-    @Column(nullable = false)
     private LocalDateTime timeOut;
-
-    @Column(nullable = false)
-    private int meterReading;
-
     private String units;
-
     private String comments;
-
-    @Column(updatable = false, unique = true)
     private LocalDateTime createdAt;
-
-    @Column(updatable = false, unique = true)
     private LocalDateTime updatedAt;
 
     public String getId() {
@@ -49,16 +28,6 @@ public class ShiftRecord {
     public void setTimeIn(LocalDateTime timeIn) {
         this.timeIn = timeIn;
     }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-
 
     public LocalDateTime getTimeOut() {
         return timeOut;

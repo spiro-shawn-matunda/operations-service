@@ -18,7 +18,7 @@ public class Attendants {
 
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
-            name = "attendants_incidents",
+            name = "attendantsIncident",
             joinColumns = @JoinColumn(name = "attendants"),
             inverseJoinColumns = @JoinColumn(name = "incident")
     )
@@ -37,13 +37,12 @@ public class Attendants {
     @JoinColumn(name = "Status")
     Status status;
 
-    @Column
     private String homeAddress;
 
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = ShiftRecord.class)
     @JoinTable(
-            name = "Attendants_ShiftRecord",
-            joinColumns = @JoinColumn(name = "Attendants"),
+            name = "AttendantShiftRecord",
+            joinColumns = @JoinColumn(name = "Attendant"),
             inverseJoinColumns = @JoinColumn(name = "ShiftRecord")
     )
     List<ShiftRecord> shiftRecords;
