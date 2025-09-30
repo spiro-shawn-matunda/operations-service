@@ -1,10 +1,10 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Battery {
@@ -12,22 +12,21 @@ public class Battery {
     @Id
     private String Oem;
 
-    private String faulty;
-
-    private String numberOfBatteries;
-
-    private String numberOfChargers;
-
-    private String numberOfFaultyChargers;
-
     @Column(nullable = false)
-    private String status;
+    private boolean faulty;
 
-    @Column(updatable = false)
+
+    @Column(updatable = false,nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(updatable = false)
+    @ManyToOne(targetEntity = Status.class)
+    @JoinColumn(name = "Status", nullable = false)
+    Status status;
+
+    @Column(updatable = false,nullable = false )
     private LocalDateTime updatedAt;
+
+
 
 
 }

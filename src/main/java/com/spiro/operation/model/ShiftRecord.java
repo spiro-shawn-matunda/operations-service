@@ -1,10 +1,9 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class ShiftRecord {
@@ -15,6 +14,17 @@ public class ShiftRecord {
     @Column(nullable = false)
     private LocalDateTime timeIn;
 
+    @ManyToOne(targetEntity = Status.class)
+    @JoinColumn(name = "Status",nullable = false)
+    Status status;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
+    @JoinTable(
+            name = "ShiftRecordIncidents",
+            joinColumns = @JoinColumn(name = "ShiftRecord"),
+            inverseJoinColumns = @JoinColumn(name = "Incident")
+    )
+    List<Incident> incidents;
 
     @Column(nullable = false)
     private LocalDateTime timeOut;
@@ -23,14 +33,19 @@ public class ShiftRecord {
 
     private String comments;
 
-    @Column(nullable = false)
-    private String status;
-
     @Column(updatable = false, unique = true)
     private LocalDateTime createdAt;
 
-    @Column(updatable = false, unique = true)
-    private LocalDateTime updatedAt;
+    @Column(nullable = false)
+    private String meterReading;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Attendants.class)
+    @JoinTable(
+            name = "Attendants_ShiftRecord",
+            joinColumns = @JoinColumn(name = "Attendants_id"),
+            inverseJoinColumns = @JoinColumn(name = "ShiftRecord-id")
+    )
+    List<Attendants> attendants;
 
 
 }

@@ -1,10 +1,9 @@
 package com.spiro.operation.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class ShiftTable {
@@ -12,13 +11,19 @@ public class ShiftTable {
     @Id
     private String id;
 
-
     @Column(nullable = false)
     private LocalDateTime startTime;
 
+    @OneToOne(targetEntity = Status.class)
+    @JoinColumn(name = "Status",nullable = false)
+    Status status;
 
     @Column(nullable = false)
     private LocalDateTime endTime;
+
+    @Enumerated(EnumType.STRING)
+    private ShiftType type;
+
 
     @Column(nullable = false,updatable = false)
     private LocalDateTime createdAt;
