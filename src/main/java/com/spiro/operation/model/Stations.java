@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 public class Stations {
+
     @Id
     private String id;
 
@@ -17,7 +18,7 @@ public class Stations {
     @JoinColumn(name = "Status", nullable = false)
     Status status;
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = PowerEvent.class)
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = PowerEvent.class)
     @JoinTable(
             name = "Stations_PowerEvent",
             joinColumns = @JoinColumn(name = "Station-id"),

@@ -16,10 +16,10 @@ public class Attendants {
     @Column(nullable = false)
     private String lastName;
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Incident.class)
     @JoinTable(
             name = "attendants_incidents",
-            joinColumns = @JoinColumn(name = "attendants"),
+            joinColumns = @JoinColumn(name = "attendant"),
             inverseJoinColumns = @JoinColumn(name = "incident")
     )
     private List<Incident> incidents;
@@ -34,7 +34,7 @@ public class Attendants {
     private String email;
 
     @ManyToOne(targetEntity = Status.class, optional = false)
-    @JoinColumn(name = "Status",nullable = false)
+    @JoinColumn(name = "Status")
     Status status;
 
     @Column

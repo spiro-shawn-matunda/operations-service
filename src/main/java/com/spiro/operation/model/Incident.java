@@ -15,21 +15,18 @@ public class Incident {
 
     private String customerId;
 
-    @ManyToOne(targetEntity = Status.class)
-    @JoinColumn(name = "Status",nullable = false)
+    @ManyToOne(targetEntity = Status.class, optional = false)
+    @JoinColumn(name = "Status")
     Status status;
 
     private String bikeRegistration;
 
-    @ManyToOne(targetEntity =Stations.class)
-    @JoinColumn(name = "Station",nullable = false)
-    Stations stations;
-
-
-    @Column(length = 500)
+    @Column(length = 5000)
     private String Description;
 
 
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
 
 
 }

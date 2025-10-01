@@ -17,6 +17,6 @@ public class Status {
     private String description;
 
 
-    public Status() {}
+
 
 }

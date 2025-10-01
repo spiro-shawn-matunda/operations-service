@@ -47,5 +47,16 @@ public class ShiftRecord {
     )
     List<Attendants> attendants;
 
+      @Column(nullable = false)
+      private int dailySwaps;
+
+      @Column(nullable = false)
+      private int emptyBatteries;
+
+      @Column(nullable = false)
+      private int chargedBatteries;
+
+
+
 
 }

@@ -26,21 +26,10 @@ public class PowerEvent {
     @Column(updatable = false, nullable = false)
     private LocalDateTime created;
 
-    public PowerEvent() {
-    }
 
-    public PowerEvent(String id, LocalDateTime startTime, LocalDateTime endTime,
-                      PowerEventType type, LocalDateTime created) {
-        this.id = id;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.type = type;
-        this.created = created;
+    public PowerEvent(String id, LocalDateTime startTime, LocalDateTime endTime, PowerEventType powerEventType, LocalDateTime created) {
     }
-
 
     public void setStatus(Status status) {
-        this.status = status;
     }
-
 }
